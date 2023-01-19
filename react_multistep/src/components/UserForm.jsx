@@ -2,7 +2,28 @@ import React from 'react'
 
 const UserForm = () => {
   return (
-    <div><h2>UserForm</h2></div>
+    <div>
+      <div className='form-control'>
+        <label htmlFor="name">Nome:</label>
+        <input 
+             type="text"
+             name='text'
+             id='name'
+             placeholder='Digite o seu nome'
+             required 
+            />
+      </div>
+      <div className='form-control'>
+        <label htmlFor="email">Nome:</label>
+        <input 
+             type="email"
+             name='email'
+             id='email'
+             placeholder='Digite o seu e-mail'
+             required 
+            />
+      </div>
+      </div>
   )
 }
 
