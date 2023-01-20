@@ -1,3 +1,5 @@
+import "./ReviewForm.css";
+
 import {
   BsFillEmojiHeartEyesFill,
   BsFillEmojiSmileFill,
@@ -5,7 +7,7 @@ import {
   BsFillEmojiFrownFill,
 } from 'react-icons/bs'
 
-const ReviewForm = () => {
+const ReviewForm = ({ data, updateFieldHandler }) => {
   return (
       <div className='review-form'>
       <div className='form-control score-container'>
@@ -14,7 +16,9 @@ const ReviewForm = () => {
              type="radio"
              value='unsatisfied'
              name='review'
-             required 
+             required
+             checked={data.review === "unsatisfied"}
+             onChange={(e) => updateFielHandler("review", e.target.value)} 
             />
             <BsFillEmojiFrownFill />
             <p>Insatisfeito</p>
@@ -24,7 +28,9 @@ const ReviewForm = () => {
              type="radio"
              value='neutral'
              name='review'
-             required 
+             required
+             checked={data.review === "neutral"}
+             onChange={(e) => updateFielHandler("review", e.target.value)}  
             />
             <BsFillEmojiNeutralFill />
             <p>Poderia ser melhor</p>
@@ -35,6 +41,8 @@ const ReviewForm = () => {
              value='satisfied'
              name='review'
              required 
+             checked={data.review === "satisfied"}
+             onChange={(e) => updateFielHandler("review", e.target.value)} 
             />
             <BsFillEmojiSmileFill />
             <p>Satisfeito</p>
@@ -44,7 +52,9 @@ const ReviewForm = () => {
              type="radio"
              value='very_satisfied'
              name='review'
-             required 
+             required
+             checked={data.review === "very_satisfied"}
+             onChange={(e) => updateFielHandler("review", e.target.value)}  
             />
             <BsFillEmojiHeartEyesFill />
             <p>Muito satisfeito</p>
@@ -57,9 +67,11 @@ const ReviewForm = () => {
         id="comment"
          placeholder='Conte como foi a sua experiencia com o produto...'
           required
-          ></textarea>
-      </div>
-      </div>
+          value={data.comment || ""}
+          onChange={(e) => updateFielHandler("comment", e.target.value)}
+            ></textarea>
+            </div>
+          </div>
   )
 }
 
